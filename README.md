@@ -7,7 +7,7 @@ Live Demo: [taskmanager22b4513.netlify.app](https://taskmanager22b4513.netlify.a
 
 ---
 
-A sleek, responsive, and feature-packed **Task Manager** built with **React + TypeScript**, designed to help users manage tasks efficiently with powerful **sorting, filtering, local storage**, and a **dark mode** vibe.  
+A sleek, responsive, and feature-packed **Task Manager** built with **React**, designed to help users manage tasks efficiently with powerful **sorting, filtering, local storage**, and a **dark mode** vibe.  
 This project was built as part of a front-end engineer assignment for **Hushh.ai** — and yeah, we went *all in*. 💪
 
 ---
@@ -95,5 +95,4 @@ This project was built as part of a front-end engineer assignment for **Hushh.ai
 **Akshat Kumar**  
 _IIT Bombay (22B4513)_  
 ⚛️ React ninja by day, 🤖 ML wizard by night  
-💼 Frontend Dev Intern @ **Hushh.ai**
 
