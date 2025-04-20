@@ -1,0 +1,695 @@
+/* --- 1. GOOGLE FONT IMPORT --- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+/* --- BASE REM SETUP --- */
+html {
+  /* Assuming base font-size of 16px => 1rem = 16px */
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+/* --- 2. RESET & BASE STYLES --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.dark-mode {
+  background-color: #1a1a2e; /* deep purple-black vibes */
+  color: #e0e0e0;
+}
+
+/* Header wrapper */
+.header {
+  background-color: #f0f0f5;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0 0 16px 16px;
+}
+
+.app-container.dark .header {
+  background-color: #1e1e2e;
+}
+
+.theme-toggle-btn {
+  padding: 0.5rem 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+}
+
+/* Nav styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Left - Logo / Company */
+.leftHeader .company-name {
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: #9536d5;
+  margin: 0;
+}
+
+.app-container.dark .company-name {
+  color: #c77dff;
+}
+
+/* Right - Nav Links + Toggle */
+.rightHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Nav Links */
+.rightHeader ul {
+  display: flex;
+  list-style: none;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.rightHeader ul li a {
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.rightHeader ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #7209b7;
+  transition: width 0.3s ease;
+}
+
+.rightHeader ul li a:hover {
+  color: #7209b7;
+}
+
+.rightHeader ul li a:hover::after {
+  width: 100%;
+}
+
+.app-container.dark .rightHeader ul li a {
+  color: #eee;
+}
+
+.app-container.dark .rightHeader ul li a:hover {
+  color: #c77dff;
+}
+
+.app-container.dark .rightHeader ul li a:hover::after {
+  background-color: #c77dff;
+}
+
+/* Toggle Button */
+.theme-toggle-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #3a0ca3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  background-color: #560bad;
+  transform: scale(1.05);
+}
+
+.app-container.dark .theme-toggle-btn {
+  background-color: #7209b7;
+}
+
+.app-container.dark .theme-toggle-btn:hover {
+  background-color: #5f0f40;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .rightHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .rightHeader ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .theme-toggle-btn {
+    width: 100%;
+  }
+}
+
+.DarkMode {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 1.2rem;
+  padding-right: 2rem; /* Optional: adds space from the right edge */
+}
+
+/* --- 3. APP CONTAINER STYLES --- */
+.app-container {
+  padding: 1.875rem 1.25rem; /* 30px 20px */
+  max-width: 100%; /* 900px */
+  margin: auto;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  /* border-radius: 0.75rem; 12px */
+  box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.05); /* 20px */
+}
+
+/* Light Mode */
+.app-container.light {
+  background-color: #ffffff;
+  color: #1e272e;
+}
+
+/* Dark Mode - Black + Purple Theme */
+.app-container.dark {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+}
+
+/* --- 4. TITLE STYLES --- */
+.title,
+.Title {
+  text-align: center;
+  font-size: 4rem; /* ~45px */
+  margin-bottom: 1.5625rem; /* 25px */
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.app-container.light .Title {
+  color: #333;
+}
+.app-container.dark .Title {
+  color: #e0e0e0;
+}
+
+/* --- 5. THEME TOGGLE BUTTON --- */
+.theme-toggle-btn {
+  padding: 0.75rem 1.5rem; /* 12px 24px */
+  margin-bottom: 1.5625rem; /* 25px */
+  background-color: #3a0ca3;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem; /* 8px */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1); /* 4px 12px */
+}
+.theme-toggle-btn:hover {
+  background-color: #5f0f40;
+}
+.app-container.dark .theme-toggle-btn {
+  background-color: #7209b7;
+}
+.app-container.dark .theme-toggle-btn:hover {
+  background-color: #560bad;
+}
+
+/* --- 6. SEARCH INPUT --- */
+
+.search-container {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center; /* Vertically center the text and input */
+  gap: 1rem; /* Space between the heading and input */
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.search-input {
+  padding: 0.85rem 1.2rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 2px solid #ccc;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #7209b7;
+  box-shadow: 0 0 0 4px rgba(114, 9, 183, 0.2);
+}
+
+/* DARK MODE GLOW-UP */
+.app-container.dark .search-input {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  border: 2px solid #7209b7;
+  box-shadow: 0 0 12px rgba(114, 9, 183, 0.3);
+}
+
+.app-container.dark .search-input::placeholder {
+  color: #aaa;
+}
+
+/* --- 7. SORT & FILTER SECTION --- */
+.sort-filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9375rem; /* 15px */
+  margin-bottom: 1.5625rem; /* 25px */
+  margin-left: 1.2rem;
+  margin-right: 1.2rem;
+  justify-content: space-between;
+}
+.sort-filter-section label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 0.5rem; /* 8px */
+}
+.sort-filter-section select {
+  padding: 0.625rem; /* 10px */
+  border-radius: 0.375rem; /* 6px */
+  border: 0.0625rem solid #ccc;
+  font-size: 0.95rem;
+  background-color: #fff;
+  color: #2c3e50;
+}
+.sort-filter-section select:focus {
+  border-color: #1e90ff;
+}
+.app-container.dark .sort-filter-section select {
+  background-color: #7f32b2;
+  color: #fff;
+  border-color: #7209b7;
+}
+/* --- 8. RESPONSIVE STYLES --- */
+@media (max-width: 48rem) {
+  /* 768px */
+  .sort-filter-section {
+    flex-direction: column;
+  }
+  .theme-toggle-btn {
+    width: 100%;
+  }
+  .title,
+  .Title {
+    font-size: 2.2rem; /* ~35px */
+  }
+}
+
+/* --- 9. TASK CARD STYLES --- */
+.task-card {
+  border: 0.0625rem solid #ddd;
+  padding: 0.9375rem 1.25rem; /* 15px 20px */
+  margin: 1.5625rem 0;
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 4px 8px */
+  transition: all 0.3s ease;
+}
+.task-card.light {
+  background-color: #fff;
+  color: #000;
+}
+.task-card.light.completed {
+  background-color: #d3ffd3;
+  color: gray;
+}
+.task-card.dark {
+  border: solid rgb(165, 139, 182);
+  background-color: #2b2d42;
+  color: #fff;
+}
+.task-card.dark.completed {
+  background-color: #3c3f58;
+  color: #cfcfcf;
+}
+
+/* --- 10. TASK TITLE & DESCRIPTION --- */
+.task-title {
+  margin: 0 0 0.625rem 0; /* 10px */
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.task-description {
+  font-size: 1rem;
+  margin-bottom: 0.625rem; /* 10px */
+}
+.task-info {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* --- 11. COUNTDOWN --- */
+.task-countdown {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.9375rem; /* 15px */
+}
+
+/* --- 12. TASK BUTTONS --- */
+.task-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem; /* 10px */
+}
+.btn {
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  border: none;
+  border-radius: 0.3125rem; /* 5px */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+.complete-btn {
+  background-color: #2ecc71;
+}
+.incomplete-btn {
+  background-color: #f39c12;
+}
+.delete-btn {
+  background-color: #e74c3c;
+}
+.edit-btn {
+  background-color: #3498db;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Mobile Layout */
+@media (max-width: 37.5rem) {
+  /* 600px */
+  .task-buttons {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --- 13. INPUTS, SELECTS & LABELS GLOW-UP --- */
+input[type="text"],
+select {
+  padding: 0.75rem 1rem; /* 12px 16px */
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid #ccc;
+  background-color: #fff;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.05); /* 2px 6px */
+  width: 100%;
+  max-width: 18.75rem; /* 300px */
+}
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: #7209b7;
+  box-shadow: 0 0 0 0.1875rem rgba(114, 9, 183, 0.3); /* 3px */
+}
+
+/* --- 14. DARK MODE INPUT/SELECT STYLES --- */
+.app-container.dark input[type="text"],
+.app-container.dark select {
+  background-color: #2f2f4f;
+  color: #fff;
+  border-color: #7209b7;
+  box-shadow: 0 0.125rem 0.375rem rgba(255, 255, 255, 0.05);
+}
+.app-container.dark input[type="text"]:focus,
+.app-container.dark select:focus {
+  border-color: #c77dff;
+  box-shadow: 0 0 0 0.1875rem rgba(199, 125, 255, 0.3);
+}
+
+/* --- 15. LABEL STYLES --- */
+.sort-filter-section label {
+  display: block;
+  margin-bottom: 0.375rem; /* 6px */
+  font-weight: 600;
+  color: inherit;
+}
+
+/* --- 16. SORTING & FILTERING BLOCKS --- */
+.sort-filter-section > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 9.375rem; /* 150px */
+  gap: 0.25rem; /* 4px */
+}
+
+/* Container for Form */
+/* --- FORM CONTAINER --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 36rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- LIGHT MODE --- */
+.app-container.light form {
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.app-container.light form:hover {
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.15);
+}
+
+/* --- DARK MODE --- */
+.app-container.dark form {
+  background-color: #2b2d42;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+.app-container.dark form:hover {
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+
+/* --- TITLE INPUT --- */
+input[name="title"] {
+  padding: 1.25rem 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: 2px solid #7209b7;
+  background-color: #fff;
+  color: #2c3e50;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-container.dark input[name="title"] {
+  background-color: #2c2c2c;
+  color: #eee;
+  border-color: #9b4dff;
+}
+
+/* --- DESCRIPTION TEXTAREA --- */
+textarea[name="description"] {
+  padding: 1rem 1.25rem;
+  font-size: 1.125rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid #aaa;
+  background-color: #f9f9f9;
+  color: #2c3e50;
+  width: 100%;
+  height: 120px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.app-container.dark textarea[name="description"] {
+  background-color: #262626;
+  color: #e0d7ff;
+  border-color: #9b4dff;
+}
+
+/* --- INPUT + SELECT ROW AFTER DESCRIPTION --- */
+.task-details-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --- SELECTS & DATE --- */
+.task-details-row select,
+.task-details-row input[type="date"] {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid #ccc;
+  background-color: #fff;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  box-sizing: border-box;
+}
+
+.app-container.dark .task-details-row select,
+.app-container.dark .task-details-row input[type="date"] {
+  background-color: #2c2c2c;
+  color: #e0d7ff;
+  border-color: #9b4dff;
+}
+
+/* --- FOCUS EFFECTS --- */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #7209b7;
+  box-shadow: 0 0 0 3px rgba(114, 9, 183, 0.2);
+}
+
+/* --- SUBMIT BUTTON --- */
+button[type="submit"] {
+  padding: 0.875rem 2rem;
+  background-color: #7209b7;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:hover {
+  background-color: #5e0b99;
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* footer details */
+
+.footer {
+  background: linear-gradient(135deg, #1a1a2e, #3f0071);
+  color: #fff;
+  padding: 2rem 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-top: 3px solid #7209b7;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: left;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-container h3 {
+  color: #ffb703;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info,
+.social-links,
+.site-info {
+  flex: 1 1 250px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: #ffb703;
+  transform: translateX(5px);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+a {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.heart {
+  color: red;
+  font-size: 1.2rem;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+}
